@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <Container>
+      <Container className="my-5">
         <InputGroup className="mb-3" size="lg">
           <FormControl
             placeholder="Search For Artist"
@@ -77,6 +77,7 @@ function App() {
                 <Card.Img src={album.images[0].url}/>
                   <Card.Body>
                     <Card.Title>{album.name}</Card.Title>
+                    <Button href={album.images[0].url} target="_blank" onClick={search} >Download</Button>
                   </Card.Body>
               </Card>
             )
