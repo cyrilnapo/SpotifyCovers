@@ -5,7 +5,16 @@ Spotify doesn't allow you to just drag and drop or download their albums cover i
 
 And the main point also is, as an apprentice, I wanted to find something easy to do using an API so I could learn how it works + react language interested me and that was an occasion to initiate myself to it.
 
-### Installing
+### Using
+
 ```
-coming
+cd *\High-quality-cover-main\client
+```
+
+```
+npm install
+```
+
+```
+npm start
 ```
