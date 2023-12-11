@@ -8,6 +8,8 @@ And the main point also is, as an apprentice, I wanted to find something easy to
 
 ## Using
 
+#### Prerequire node.js
+
 ```
 cd *\High-quality-cover-main\client
 ```
