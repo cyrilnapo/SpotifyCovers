@@ -1,3 +1,4 @@
+// Import des dépendances et des fichiers CSS nécessaires
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,14 +16,15 @@ import { useState, useEffect } from "react";
 const CLIENT_ID = "2754ffafe92e47b9bd6d17bec67e45b2";
 const CLIENT_SECRET = "d6bf9ff451ec4ca0bb2b1e662c41276e";
 
+// Fonction principale de l'application
 function App() {
   // State pour la valeur de recherche, le token d'accès Spotify, et les albums
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
 
+  // Utilisation de useEffect pour obtenir le token d'accès lors du chargement initial de la page
   useEffect(() => {
-    // Obtention du token d'accès lors du chargement initial de la page
     var authParameters = {
       method: "POST",
       headers: {
@@ -39,8 +41,8 @@ function App() {
       .then((data) => setAccessToken(data.access_token));
   }, []);
 
+  // Fonction de recherche appelée lorsqu'un utilisateur effectue une recherche
   async function search() {
-    // Fonction de recherche appelée lorsqu'un utilisateur effectue une recherche
     console.log("Searching for " + searchInput);
 
     // Requête pour obtenir l'ID de l'artiste à partir de la recherche
@@ -77,13 +79,14 @@ function App() {
       });
   }
 
+  // Rendu de l'interface utilisateur
   return (
     <div className="App">
       <Container className="my-5">
         {/* Barre de recherche avec bouton de recherche */}
         <InputGroup className="mb-3" size="lg">
           <FormControl
-            placeholder="Search For Artist"
+            placeholder="Rechercher un artiste"
             type="input"
             onKeyPress={(event) => {
               if (event.key == "Enter") {
@@ -92,7 +95,7 @@ function App() {
             }}
             onChange={(event) => setSearchInput(event.target.value)}
           />
-          <Button onClick={search}>Search</Button>
+          <Button onClick={search}>Recherche</Button>
         </InputGroup>
       </Container>
       <Container>
@@ -101,7 +104,7 @@ function App() {
           {albums.map((album, i) => {
             return (
               // Carte pour afficher chaque album avec un bouton de téléchargement
-              <Card className=" my-2">
+              <Card className=" my-2" key={i}>
                 <Card.Img src={album.images[0].url} />
                 <Card.Body>
                   <Card.Title>{album.name}</Card.Title>
@@ -110,7 +113,7 @@ function App() {
                     target="_blank"
                     onClick={search}
                   >
-                    Download
+                    Télécharger
                   </Button>
                 </Card.Body>
               </Card>
