@@ -12,6 +12,8 @@ import {
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
+document.body.style.backgroundColor = "#e8f1ff";
+
 // Clés d'authentification Spotify
 const CLIENT_ID = "2754ffafe92e47b9bd6d17bec67e45b2";
 const CLIENT_SECRET = "d6bf9ff451ec4ca0bb2b1e662c41276e";
@@ -81,15 +83,15 @@ function App() {
 
   // Rendu de l'interface utilisateur
   return (
-    <div className="App">
+    <div className="App-container">
       <Container className="my-5">
         {/* Barre de recherche avec bouton de recherche */}
         <InputGroup className="mb-3" size="lg">
           <FormControl
-            placeholder="Rechercher un artiste"
+            placeholder="rechercher un artiste"
             type="input"
             onKeyPress={(event) => {
-              if (event.key == "Enter") {
+              if (event.key === "Enter") {
                 search();
               }
             }}
@@ -104,7 +106,7 @@ function App() {
           {albums.map((album, i) => {
             return (
               // Carte pour afficher chaque album avec un bouton de téléchargement
-              <Card className=" my-2" key={i}>
+              <Card className="my-2 custom-card" key={i}>
                 <Card.Img src={album.images[0].url} />
                 <Card.Body>
                   <Card.Title>{album.name}</Card.Title>
