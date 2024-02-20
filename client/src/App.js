@@ -18,6 +18,15 @@ document.body.style.backgroundColor = "#e8f1ff";
 const CLIENT_ID = "2754ffafe92e47b9bd6d17bec67e45b2";
 const CLIENT_SECRET = "d6bf9ff451ec4ca0bb2b1e662c41276e";
 
+var SpotifyWebApi = require("spotify-web-api-node");
+
+// credentials are optional
+var spotifyApi = new SpotifyWebApi({
+  clientId: CLIENT_ID,
+  clientSecret: CLIENT_SECRET,
+  redirectUri: "http://localhost:3000/",
+});
+
 // Fonction principale de l'application
 function App() {
   // State pour la valeur de recherche, le token d'accès Spotify, et les albums
@@ -46,6 +55,17 @@ function App() {
   // Fonction de recherche appelée lorsqu'un utilisateur effectue une recherche
   async function search() {
     console.log("Searching for " + searchInput);
+
+    spotifyApi.setAccessToken(accessToken);
+
+    spotifyApi.getMe().then(
+      function (data) {
+        console.log("Some information about the authenticated user", data.body);
+      },
+      function (err) {
+        console.log("Something went wrong!", err);
+      }
+    );
 
     // Requête pour obtenir l'ID de l'artiste à partir de la recherche
     var searchParameters = {
