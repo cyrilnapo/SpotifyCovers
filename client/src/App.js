@@ -11,14 +11,13 @@ import {
   Card,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
+var SpotifyWebApi = require("spotify-web-api-node");
 
 document.body.style.backgroundColor = "#e8f1ff";
 
 // Clés d'authentification Spotify
 const CLIENT_ID = "2754ffafe92e47b9bd6d17bec67e45b2";
 const CLIENT_SECRET = "d6bf9ff451ec4ca0bb2b1e662c41276e";
-
-var SpotifyWebApi = require("spotify-web-api-node");
 
 // credentials are optional
 var spotifyApi = new SpotifyWebApi({
