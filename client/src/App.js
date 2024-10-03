@@ -1,5 +1,4 @@
 // Import des dépendances et des fichiers CSS nécessaires
-import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -13,7 +12,7 @@ import {
 import { useState, useEffect } from "react";
 var SpotifyWebApi = require("spotify-web-api-node");
 
-document.body.style.backgroundColor = "#e8f1ff";
+document.body.style.backgroundColor = "#191414";
 
 // Clés d'authentification Spotify
 const CLIENT_ID = "2754ffafe92e47b9bd6d17bec67e45b2";
@@ -28,12 +27,10 @@ var spotifyApi = new SpotifyWebApi({
 
 // Fonction principale de l'application
 function App() {
-  // State pour la valeur de recherche, le token d'accès Spotify, et les albums
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
 
-  // Utilisation de useEffect pour obtenir le token d'accès lors du chargement initial de la page
   useEffect(() => {
     var authParameters = {
       method: "POST",
@@ -51,20 +48,10 @@ function App() {
       .then((data) => setAccessToken(data.access_token));
   }, []);
 
-  // Fonction de connexion Spotify
-  function login() {
-    // Définissez les paramètres pour la requête d'autorisation
-    const authorizeURL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=http://localhost:3000/&scope=user-read-private%20user-read-email&response_type=token&state=123`;
-
-    // Redirigez l'utilisateur vers l'URL d'autorisation
-    window.location = authorizeURL;
-  }
-
-  // Fonction de recherche appelée lorsqu'un utilisateur effectue une recherche
+  // Fonction de recherche
   async function search() {
     console.log("Searching for " + searchInput);
 
-    // Requête pour obtenir l'ID de l'artiste à partir de la recherche
     var searchParameters = {
       method: "GET",
       headers: {
@@ -83,7 +70,6 @@ function App() {
 
     console.log("artist id is " + artistID);
 
-    // Requête pour obtenir les albums de l'artiste
     var returnedAlbums = await fetch(
       "https://api.spotify.com/v1/artists/" +
         artistID +
@@ -97,17 +83,23 @@ function App() {
         setAlbums(data.items);
       });
   }
+
   // Rendu de l'interface utilisateur
   return (
     <div className="App-container">
-      <Container className="py-5">
-        {/* Bouton de connexion Spotify */}
-        <Button classname="loginButton" variant="success" onClick={login}>
-          Se connecter à Spotify
-        </Button>
+      {/* Ajout du logo Spotify */}
+      <Container className="text-center py-3">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/1200px-Spotify_logo_with_text.svg.png"
+          alt="Spotify Logo"
+          style={{ width: "350px" }}
+        />
+      </Container>
 
-        {/* Barre de recherche avec bouton de recherche */}
-        <InputGroup className="mb-3 py-5" size="lg">
+      <Container className="py-5">
+      <div className="d-flex justify-content-center">
+        <InputGroup className="mb-3 py-0" size="lg"style={{width:"60%"}}
+        >
           <FormControl
             placeholder="rechercher un artiste"
             type="input"
@@ -118,21 +110,23 @@ function App() {
             }}
             onChange={(event) => setSearchInput(event.target.value)}
           />
-          <Button onClick={search}>Recherche</Button>
+          <Button onClick={search} style={{ backgroundColor: "#1DB954", borderColor: "#1DB954", color : "#191414" }}>
+  Recherche
+</Button>
         </InputGroup>
+        </div>
+
       </Container>
 
-      {/* Grille pour afficher les albums */}
       <Container>
         <Row className="row-cols-4">
           {albums.map((album, i) => {
             return (
-              // Carte pour afficher chaque album avec un bouton de téléchargement
-              <Card className="my-2 custom-card" key={i}>
+              <Card className="my-2 custom-card" key={i} style={{ backgroundColor: "transparent", border: "none" }}>
                 <Card.Img src={album.images[0].url} />
                 <Card.Body>
-                  <Card.Title>{album.name}</Card.Title>
-                  <Button href={album.images[0].url} target="_blank">
+                  <Card.Title style={{color :"white"}}>{album.name}</Card.Title>
+                  <Button href={album.images[0].url} target="_blank" style={{backgroundColor:"#1DB954", border:"none", color:"#191414", boxShadow: "0 0 5px #1DB954, 0 0 5px #1DB954, 0 0 5px #1DB954" }}>
                     Télécharger
                   </Button>
                 </Card.Body>
