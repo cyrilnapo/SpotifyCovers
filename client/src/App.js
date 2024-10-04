@@ -1,4 +1,3 @@
-// Import des dépendances et des fichiers CSS nécessaires
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -8,6 +7,7 @@ import {
   Button,
   Row,
   Card,
+  ListGroup,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
 var SpotifyWebApi = require("spotify-web-api-node");
@@ -30,6 +30,7 @@ function App() {
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
+  const [artistSuggestions, setArtistSuggestions] = useState([]);
 
   useEffect(() => {
     var authParameters = {
@@ -48,10 +49,8 @@ function App() {
       .then((data) => setAccessToken(data.access_token));
   }, []);
 
-  // Fonction de recherche
-  async function search() {
-    console.log("Searching for " + searchInput);
-
+  // Fonction de recherche des albums
+  async function search(artistID) {
     var searchParameters = {
       method: "GET",
       headers: {
@@ -59,16 +58,6 @@ function App() {
         Authorization: "Bearer " + accessToken,
       },
     };
-    var artistID = await fetch(
-      "https://api.spotify.com/v1/search?q=" + searchInput + "&type=artist",
-      searchParameters
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        return data.artists.items[0].id;
-      });
-
-    console.log("artist id is " + artistID);
 
     var returnedAlbums = await fetch(
       "https://api.spotify.com/v1/artists/" +
@@ -81,13 +70,39 @@ function App() {
       .then((data) => {
         console.log(data);
         setAlbums(data.items);
+        setArtistSuggestions([]); 
       });
   }
 
-  // Rendu de l'interface utilisateur
+  // Fonction pour obtenir les suggestions d'artistes
+  async function getArtistSuggestions(query) {
+    if (!query) {
+      setArtistSuggestions([]);
+      return;
+    }
+
+    var searchParameters = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + accessToken,
+      },
+    };
+
+    await fetch(
+      "https://api.spotify.com/v1/search?q=" + query + "&type=artist",
+      searchParameters
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.artists) {
+          setArtistSuggestions(data.artists.items.slice(0, 10));
+        }
+      });
+  }
+
   return (
     <div className="App-container">
-      {/* Ajout du logo Spotify */}
       <Container className="text-center py-3">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/1200px-Spotify_logo_with_text.svg.png"
@@ -96,24 +111,59 @@ function App() {
         />
       </Container>
 
-      <Container className="py-5">
-      <div className="d-flex justify-content-center">
-        <InputGroup className="mb-3 py-0" size="lg"style={{width:"60%"}}
-        >
-          <FormControl
-            placeholder="rechercher un artiste"
-            type="input"
-            onKeyPress={(event) => {
-              if (event.key === "Enter") {
-                search();
-              }
-            }}
-            onChange={(event) => setSearchInput(event.target.value)}
-          />
-          <Button onClick={search} style={{ backgroundColor: "#1DB954", borderColor: "#1DB954", color : "#191414" }}>
-  Recherche
-</Button>
-        </InputGroup>
+      <Container className="py-5" style={{ position: "relative" }}>
+        <div className="d-flex justify-content-center">
+          <InputGroup className="mb-3 py-0" size="lg" style={{ width: "60%"}}>
+            <FormControl
+              placeholder="rechercher un artiste"
+              type="input"
+              style={{borderRadius:"15px 0 0 0"}}
+              onChange={(event) => {
+                setSearchInput(event.target.value);
+                getArtistSuggestions(event.target.value);
+              }}
+              onKeyPress={(event) => {
+                if (event.key === "Enter" && artistSuggestions.length > 0) {
+                  search(artistSuggestions[0].id);
+                }
+              }}
+            />
+            <Button
+              onClick={() => {
+                if (artistSuggestions.length > 0) {
+                  search(artistSuggestions[0].id);
+                }
+              }}
+              style={{
+                backgroundColor: "#1DB954",
+                borderColor: "#1DB954",
+                color: "#191414",
+                borderRadius:"0 15px 0 0"
+              }}
+            >
+              Recherche
+            </Button>
+          </InputGroup>
+        </div>
+        <div className="d-flex justify-content-center">
+        {/* Affichage des suggestions avec un maximum de 10*/}
+        {artistSuggestions.length > 0 && (
+          <ListGroup className="suggestions-list"style={{backgroundColor:"#ffffff83", zIndex:"1000", position:"absolute", width:"58.8%", top:"60%", borderRadius:"0 0 15px 15px"}}>
+            {artistSuggestions.map((artist) => (
+              <ListGroup.Item
+                key={artist.id}
+                className="suggestions-list-item"
+                action
+                onClick={() => {
+                  search(artist.id)
+                  }}
+                
+              >
+                {artist.name}
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        )}
         </div>
 
       </Container>
@@ -122,11 +172,27 @@ function App() {
         <Row className="row-cols-4">
           {albums.map((album, i) => {
             return (
-              <Card className="my-2 custom-card" key={i} style={{ backgroundColor: "transparent", border: "none" }}>
+              <Card
+                className="my-2 custom-card"
+                key={i}
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
                 <Card.Img src={album.images[0].url} />
                 <Card.Body>
-                  <Card.Title style={{color :"white"}}>{album.name}</Card.Title>
-                  <Button href={album.images[0].url} target="_blank" style={{backgroundColor:"#1DB954", border:"none", color:"#191414", boxShadow: "0 0 5px #1DB954, 0 0 5px #1DB954, 0 0 5px #1DB954" }}>
+                  <Card.Title style={{ color: "white" }}>
+                    {album.name}
+                  </Card.Title>
+                  <Button
+                    href={album.images[0].url}
+                    target="_blank"
+                    style={{
+                      backgroundColor: "#1DB954",
+                      border: "none",
+                      color: "#191414",
+                      boxShadow:
+                        "0 0 5px #1DB954, 0 0 5px #1DB954, 0 0 5px #1DB954",
+                    }}
+                  >
                     Télécharger
                   </Button>
                 </Card.Body>
