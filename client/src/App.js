@@ -115,7 +115,7 @@ function App() {
             <FormControl
               placeholder="Research an artist"
               type="input"
-              style={{ borderRadius: "15px 0 0 0" }}
+              style={{ borderRadius: "25px 0 0 25px" }}
               onChange={(event) => {
                 setSearchInput(event.target.value);
                 getArtistSuggestions(event.target.value);
@@ -136,7 +136,7 @@ function App() {
                 backgroundColor: "#1DB954",
                 borderColor: "#1DB954",
                 color: "#191414",
-                borderRadius: "0 15px 0 0",
+                borderRadius: "0 25px 25px 0",
               }}
             >
               <img src={searchLogo} style={{ width: "35px" }} />
@@ -153,8 +153,8 @@ function App() {
                 zIndex: "1000",
                 position: "absolute",
                 width: "58.8%",
-                top: "60%",
-                borderRadius: "0 0 15px 15px",
+                top: "70%",
+                borderRadius: "25px 25px 25px 25px",
               }}
             >
               {artistSuggestions.map((artist) => (
