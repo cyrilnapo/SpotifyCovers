@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Nexa";
+  src: url('font/Nexa-Heavy.ttf');
+  
+}
+*{
+  font-family: "Nexa";
+}
 .App {
   width: 80%;
   text-align: center;
@@ -57,4 +65,10 @@
   border: none;
   padding: 10px;
   background-color: #ced9eb;
+}
+
+.title h1{ 
+  color: white;
+  font-size: 75px;
+  
 }
