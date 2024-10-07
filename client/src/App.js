@@ -179,29 +179,11 @@ function App() {
           {albums.map((album, i) => {
             return (
               <Card
-                className="my-2 custom-card"
+                className="my-2 px-3 custom-card"
                 key={i}
                 style={{ backgroundColor: "transparent", border: "none" }}
               >
                 <Card.Img src={album.images[0].url} />
-                <Card.Body>
-                  <Card.Title style={{ color: "white" }}>
-                    {album.name}
-                  </Card.Title>
-                  <Button
-                    href={album.images[0].url}
-                    target="_blank"
-                    style={{
-                      backgroundColor: "#1DB954",
-                      border: "none",
-                      color: "white",
-                      boxShadow:
-                        "0 0 5px #1DB954, 0 0 5px #1DB954, 0 0 5px #1DB954",
-                    }}
-                  >
-                    Download
-                  </Button>
-                </Card.Body>
               </Card>
             );
           })}
