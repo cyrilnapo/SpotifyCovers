@@ -33,6 +33,7 @@ function App() {
   const [accessToken, setAccessToken] = useState("");
   const [albums, setAlbums] = useState([]);
   const [artistSuggestions, setArtistSuggestions] = useState([]);
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   useEffect(() => {
     var authParameters = {
@@ -111,7 +112,11 @@ function App() {
 
       <Container className="py-5" style={{ position: "relative" }}>
         <div className="d-flex justify-content-center">
-          <InputGroup className="mb-3 py-0" size="lg" style={{ width: "60%" }}>
+          <InputGroup
+            className={`mb-3 py-0 search-input-group ${isSearchActive ? "active" : ""}`}
+            size="lg"
+            style={{ transition: "width 0.3s ease-in-out", width: isSearchActive ? "60%" : "22%" }} // search bar width gest
+          >
             <FormControl
               placeholder="Research an artist"
               type="input"
@@ -120,6 +125,8 @@ function App() {
                 setSearchInput(event.target.value);
                 getArtistSuggestions(event.target.value);
               }}
+              onFocus={() => setIsSearchActive(true)} // set active class on click
+              onBlur={() => setIsSearchActive(false)} // remove active class when unfocus
               onKeyPress={(event) => {
                 if (event.key === "Enter" && artistSuggestions.length > 0) {
                   search(artistSuggestions[0].id);
@@ -175,42 +182,40 @@ function App() {
       </Container>
 
       <Container>
-      <Row className="row-cols-4">
-        {albums.map((album, i) => {
-          return (
-            <Card
-              className="my-2 px-3 custom-card"
-              key={i}
-              style={{ backgroundColor: "transparent", border: "none" }}
-            >
-              <Card.Img src={album.images[0].url} />
-
-              <div className="card-info">
-                <h5>{album.name}</h5>
-                <a
-                  href={album.images[0].url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <button className="download-btn">Download</button>
-                </a>
-              </div>
-            </Card>
-          );
-        })}
-      </Row>
-
+        <Row className="row-cols-4">
+          {albums.map((album, i) => {
+            return (
+              <Card
+                className="my-2 px-3 custom-card"
+                key={i}
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
+                <Card.Img src={album.images[0].url} />
+                <div className="card-info">
+                  <h5>{album.name}</h5>
+                  <a
+                    href={album.images[0].url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <button className="download-btn">Download</button>
+                  </a>
+                </div>
+              </Card>
+            );
+          })}
+        </Row>
       </Container>
 
       {/* Footer */}
-      <footer 
-        className="text-center py-3" 
-        style={{ 
-          color: "white", 
-          position: "fixed", 
-          left: 0, 
-          bottom: 0, 
-          width: "100%" 
+      <footer
+        className="text-center py-3"
+        style={{
+          color: "white",
+          position: "fixed",
+          left: 0,
+          bottom: 0,
+          width: "100%"
         }}
       >
         <p>
