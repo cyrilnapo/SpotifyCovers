@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/72070d54-2db5-488c-870d-d3d011499a28)
+![image](https://github.com/user-attachments/assets/3b7edc25-0c94-4f05-ac0b-d9da31cc2e26)
+
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white) 
 
