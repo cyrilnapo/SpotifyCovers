@@ -10,6 +10,8 @@ import {
   ListGroup,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import searchLogo from './img/loupe.png';
+
 var SpotifyWebApi = require("spotify-web-api-node");
 
 document.body.style.backgroundColor = "#191414";
@@ -107,6 +109,7 @@ function App() {
         <h1>
           Spotify Cover
         </h1>
+
       </Container>
 
       <Container className="py-5" style={{ position: "relative" }}>
@@ -139,7 +142,7 @@ function App() {
                 borderRadius:"0 15px 0 0"
               }}
             >
-              Recherche
+              <img src={searchLogo} style={{width:"35px"}}/>
             </Button>
           </InputGroup>
         </div>
