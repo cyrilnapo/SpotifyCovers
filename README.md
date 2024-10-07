@@ -1,7 +1,7 @@
-![image](https://github.com/user-attachments/assets/3b7edc25-0c94-4f05-ac0b-d9da31cc2e26)
+<img src="readme_src/example.gif" width="700px"/>
 
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white) 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)   ![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)
 
 ## What
 This program allows you to search an artist and download on the best quality (that spotify provides) their album covers image.
