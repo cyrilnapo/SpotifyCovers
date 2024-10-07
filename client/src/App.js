@@ -106,7 +106,7 @@ function App() {
   return (
     <div className="App-container">
       <Container className="text-center py-3 title">
-        <h1>Spotify Cover</h1>
+        <h1>Spotify Covers</h1>
       </Container>
 
       <Container className="py-5" style={{ position: "relative" }}>
@@ -220,7 +220,7 @@ function App() {
         }}
       >
         <p>
-          Open source project - <a href="https://github.com/cyrilnapo/high-quality-cover" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>Contribute on GitHub</a>
+          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>Contribute on GitHub</a>
         </p>
       </footer>
     </div>
