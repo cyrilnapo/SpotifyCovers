@@ -115,7 +115,7 @@ function App() {
           <InputGroup
             className={`mb-3 py-0 search-input-group ${isSearchActive ? "active" : ""}`}
             size="lg"
-            style={{ transition: "width 0.3s ease-in-out", width: isSearchActive ? "60%" : "22%" }} // search bar width gest
+            style={{ transition: "width 0.3s ease-in-out", width: isSearchActive ? "60%" : "50%" }} // search bar width gest
           >
             <FormControl
               placeholder="Research an artist"
