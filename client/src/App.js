@@ -72,7 +72,7 @@ function App() {
       .then((data) => {
         console.log(data);
         setAlbums(data.items);
-        setArtistSuggestions([]); 
+        setArtistSuggestions([]);
       });
   }
 
@@ -106,19 +106,16 @@ function App() {
   return (
     <div className="App-container">
       <Container className="text-center py-3 title">
-        <h1>
-          Spotify Cover
-        </h1>
-
+        <h1>Spotify Cover</h1>
       </Container>
 
       <Container className="py-5" style={{ position: "relative" }}>
         <div className="d-flex justify-content-center">
-          <InputGroup className="mb-3 py-0" size="lg" style={{ width: "60%"}}>
+          <InputGroup className="mb-3 py-0" size="lg" style={{ width: "60%" }}>
             <FormControl
-              placeholder="rechercher un artiste"
+              placeholder="Research an artist"
               type="input"
-              style={{borderRadius:"15px 0 0 0"}}
+              style={{ borderRadius: "15px 0 0 0" }}
               onChange={(event) => {
                 setSearchInput(event.target.value);
                 getArtistSuggestions(event.target.value);
@@ -139,34 +136,42 @@ function App() {
                 backgroundColor: "#1DB954",
                 borderColor: "#1DB954",
                 color: "#191414",
-                borderRadius:"0 15px 0 0"
+                borderRadius: "0 15px 0 0",
               }}
             >
-              <img src={searchLogo} style={{width:"35px"}}/>
+              <img src={searchLogo} style={{ width: "35px" }} />
             </Button>
           </InputGroup>
         </div>
         <div className="d-flex justify-content-center">
-        {/* Affichage des suggestions avec un maximum de 10*/}
-        {artistSuggestions.length > 0 && (
-          <ListGroup className="suggestions-list"style={{backgroundColor:"#ffffff83", zIndex:"1000", position:"absolute", width:"58.8%", top:"60%", borderRadius:"0 0 15px 15px"}}>
-            {artistSuggestions.map((artist) => (
-              <ListGroup.Item
-                key={artist.id}
-                className="suggestions-list-item"
-                action
-                onClick={() => {
-                  search(artist.id)
+          {/* Affichage des suggestions avec un maximum de 10 */}
+          {artistSuggestions.length > 0 && (
+            <ListGroup
+              className="suggestions-list"
+              style={{
+                backgroundColor: "#ffffff83",
+                zIndex: "1000",
+                position: "absolute",
+                width: "58.8%",
+                top: "60%",
+                borderRadius: "0 0 15px 15px",
+              }}
+            >
+              {artistSuggestions.map((artist) => (
+                <ListGroup.Item
+                  key={artist.id}
+                  className="suggestions-list-item"
+                  action
+                  onClick={() => {
+                    search(artist.id);
                   }}
-                
-              >
-                {artist.name}
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
-        )}
+                >
+                  {artist.name}
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          )}
         </div>
-
       </Container>
 
       <Container>
@@ -189,12 +194,12 @@ function App() {
                     style={{
                       backgroundColor: "#1DB954",
                       border: "none",
-                      color: "#191414",
+                      color: "white",
                       boxShadow:
                         "0 0 5px #1DB954, 0 0 5px #1DB954, 0 0 5px #1DB954",
                     }}
                   >
-                    Télécharger
+                    Download
                   </Button>
                 </Card.Body>
               </Card>
@@ -202,6 +207,22 @@ function App() {
           })}
         </Row>
       </Container>
+
+      {/* Footer */}
+      <footer 
+        className="text-center py-3" 
+        style={{ 
+          color: "white", 
+          position: "fixed", 
+          left: 0, 
+          bottom: 0, 
+          width: "100%" 
+        }}
+      >
+        <p>
+          Open source project - <a href="https://github.com/cyrilnapo/high-quality-cover" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>Contribute on GitHub</a>
+        </p>
+      </footer>
     </div>
   );
 }
