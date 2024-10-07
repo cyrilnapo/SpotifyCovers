@@ -16,18 +16,18 @@ var SpotifyWebApi = require("spotify-web-api-node");
 
 document.body.style.backgroundColor = "#191414";
 
-// Clés d'authentification Spotify
+// Spotify Authentication Keys
 const CLIENT_ID = "2754ffafe92e47b9bd6d17bec67e45b2";
 const CLIENT_SECRET = "d6bf9ff451ec4ca0bb2b1e662c41276e";
 
-// credentials are optional
+// Credentials are optional
 var spotifyApi = new SpotifyWebApi({
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
   redirectUri: "http://localhost:3000/",
 });
 
-// Fonction principale de l'application
+// Main app functions
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
@@ -51,7 +51,7 @@ function App() {
       .then((data) => setAccessToken(data.access_token));
   }, []);
 
-  // Fonction de recherche des albums
+  // Artist searching function
   async function search(artistID) {
     var searchParameters = {
       method: "GET",
@@ -76,7 +76,7 @@ function App() {
       });
   }
 
-  // Fonction pour obtenir les suggestions d'artistes
+  // Artists suggestions function
   async function getArtistSuggestions(query) {
     if (!query) {
       setArtistSuggestions([]);
@@ -144,7 +144,7 @@ function App() {
           </InputGroup>
         </div>
         <div className="d-flex justify-content-center">
-          {/* Affichage des suggestions avec un maximum de 10 */}
+          {/* Display suggestions (max 10) */}
           {artistSuggestions.length > 0 && (
             <ListGroup
               className="suggestions-list"
