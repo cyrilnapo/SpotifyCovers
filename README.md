@@ -1,3 +1,5 @@
+# Web app accessible [here !](https://lemon-plant-06a0c9003.5.azurestaticapps.net) (not permanent)
+
 <img src="readme_src/example.gif" width="700px"/>
 
 
@@ -10,7 +12,7 @@ Spotify doesn't allow you to just drag and drop or download their albums cover i
 
 And the main point also is, as an apprentice, I wanted to find something easy to do using an API so I could learn how it works + react language interested me and that was an occasion to initiate myself to it.
 
-## Using
+## Using (local)
 
 #### Prerequire node.js
 
