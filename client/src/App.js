@@ -10,7 +10,7 @@ import {
   ListGroup,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import searchLogo from './img/loupe.png';
+import searchLogo from './resources/img/loupe.png';
 
 var SpotifyWebApi = require("spotify-web-api-node");
 
