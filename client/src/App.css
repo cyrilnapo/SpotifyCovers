@@ -107,13 +107,16 @@
     top: 80%;
   }
 
-  .row-cols-4 {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  .custom-card {
+    padding: 10px;
+    margin-bottom: 15px;
   }
 
   .footer {
     font-size: 14px;
   }
+
+
 }
 
 @media (max-width: 480px) {
@@ -134,11 +137,12 @@
     top: 85%;
   }
 
-  .row-cols-4 {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  .custom-card {
+    padding: 8px;
   }
 
   .footer {
     font-size: 12px;
   }
+
 }

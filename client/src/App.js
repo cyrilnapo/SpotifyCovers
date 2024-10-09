@@ -197,7 +197,7 @@ function App() {
       </Container>
 
       <Container>
-        <Row className="row-cols-4">
+        <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
           {albums.map((album, i) => {
             return (
               <Card
