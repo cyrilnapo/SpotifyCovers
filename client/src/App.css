@@ -3,7 +3,7 @@
   src: url('resources/font/Nexa-Heavy.ttf'); 
 }
 
-*{
+* {
   font-family: "Nexa";
 }
 
@@ -19,7 +19,7 @@
   padding: 25px;
 }
 
-.title h1{ 
+.title h1 {
   color: white;
   font-size: 75px;
 }
@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 
-.custom-card :hover img  {
+.custom-card:hover img {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -56,7 +56,8 @@
 .custom-card:hover .card-info {
   opacity: 1;
 }
-.card-info{
+
+.card-info {
   cursor: pointer;
 }
 
@@ -79,3 +80,65 @@
   background-color: #14803a;
 }
 
+/* Responsive adjustments for mobile phones */
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 45px;
+  }
+
+  .App-container {
+    padding: 15px;
+  }
+
+  .custom-card {
+    padding: 15px;
+  }
+
+  .custom-card img {
+    width: 100%;
+  }
+
+  .search-input-group {
+    width: 90% !important;
+  }
+
+  .suggestions-list {
+    width: 85% !important;
+    top: 80%;
+  }
+
+  .row-cols-4 {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title h1 {
+    font-size: 35px;
+  }
+
+  .custom-card {
+    padding: 10px;
+  }
+
+  .search-input-group {
+    width: 100% !important;
+  }
+
+  .suggestions-list {
+    width: 95% !important;
+    top: 85%;
+  }
+
+  .row-cols-4 {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+}
