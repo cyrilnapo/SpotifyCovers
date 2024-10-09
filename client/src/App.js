@@ -62,7 +62,7 @@ function App() {
       },
     };
 
-    var returnedAlbums = await fetch(
+    await fetch(
       "https://api.spotify.com/v1/artists/" +
         artistID +
         "/albums" +
@@ -102,6 +102,21 @@ function App() {
           setArtistSuggestions(data.artists.items.slice(0, 10));
         }
       });
+  }
+
+  // download image function
+  function downloadImage(url, filename) {
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `${filename}.jpg`;
+        document.body.appendChild(link);
+        link.click(); // simulate a click on the link to start download
+        document.body.removeChild(link); // clean element after download
+      })
+      .catch((error) => console.error("Error downloading the image:", error));
   }
 
   return (
@@ -193,13 +208,12 @@ function App() {
                 <Card.Img src={album.images[0].url} />
                 <div className="card-info">
                   <h5>{album.name}</h5>
-                  <a
-                    href={album.images[0].url}
-                    target="_blank"
-                    rel="noreferrer"
+                  <button
+                    className="download-btn"
+                    onClick={() => downloadImage(album.images[0].url, album.name)}
                   >
-                    <button className="download-btn">Download</button>
-                  </a>
+                    Download
+                  </button>
                 </div>
               </Card>
             );
