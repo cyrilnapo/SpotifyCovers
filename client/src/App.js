@@ -34,6 +34,7 @@ function App() {
   const [albums, setAlbums] = useState([]);
   const [artistSuggestions, setArtistSuggestions] = useState([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchExecuted, setSearchExecuted] = useState(false);
 
   useEffect(() => {
     var authParameters = {
@@ -74,6 +75,7 @@ function App() {
         console.log(data);
         setAlbums(data.items);
         setArtistSuggestions([]);
+        setSearchExecuted(true);
       });
   }
 
@@ -198,26 +200,34 @@ function App() {
 
       <Container>
         <Row className="row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-          {albums.map((album, i) => {
-            return (
-              <Card
-                className="my-2 px-3 custom-card"
-                key={i}
-                style={{ backgroundColor: "transparent", border: "none" }}
-              >
-                <Card.Img src={album.images[0].url} />
-                <div className="card-info">
-                  <h5>{album.name}</h5>
-                  <button
-                    className="download-btn"
-                    onClick={() => downloadImage(album.images[0].url, album.name)}
-                  >
-                    Download
-                  </button>
-                </div>
-              </Card>
-            );
-          })}
+          {searchExecuted && albums.length === 0 ? (
+            <div className="w-100 d-flex justify-content-center">
+              <p className="text-center" style={{ color: "white", fontSize: "1.5rem" }}>
+                No albums found
+              </p>
+            </div>
+          ) : (
+            albums.map((album, i) => {
+              return (
+                <Card
+                  className="my-2 px-3 custom-card"
+                  key={i}
+                  style={{ backgroundColor: "transparent", border: "none" }}
+                >
+                  <Card.Img src={album.images[0].url} />
+                  <div className="card-info">
+                    <h5>{album.name}</h5>
+                    <button
+                      className="download-btn"
+                      onClick={() => downloadImage(album.images[0].url, album.name)}
+                    >
+                      Download
+                    </button>
+                  </div>
+                </Card>
+              );
+            })
+          )}
         </Row>
       </Container>
 
@@ -233,7 +243,7 @@ function App() {
         }}
       >
         <p>
-          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>Contribute on GitHub</a>
+          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>View on Github</a>
         </p>
       </footer>
     </div>
