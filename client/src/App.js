@@ -17,8 +17,8 @@ var SpotifyWebApi = require("spotify-web-api-node");
 document.body.style.backgroundColor = "#191414";
 
 // Spotify Authentication Keys
-const CLIENT_ID = "2754ffafe92e47b9bd6d17bec67e45b2";
-const CLIENT_SECRET = "d6bf9ff451ec4ca0bb2b1e662c41276e";
+const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
 // Credentials are optional
 var spotifyApi = new SpotifyWebApi({
