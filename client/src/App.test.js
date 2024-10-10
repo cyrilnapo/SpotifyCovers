@@ -16,7 +16,7 @@ test('renders search input', () => {
 
 test('renders GitHub link in footer', () => {
   render(<App />);
-  const githubLink = screen.getByText(/Contribute on GitHub/i);
+  const githubLink = screen.getByText(/View on GitHub/i);
   expect(githubLink).toBeInTheDocument();
   expect(githubLink).toHaveAttribute('href', 'https://github.com/cyrilnapo/spotifycovers');
 });
