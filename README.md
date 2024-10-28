@@ -1,4 +1,4 @@
-# ❗ Web app accessible [🌐HERE !](https://lemon-plant-06a0c9003.5.azurestaticapps.net) *(not permanent)* ❗
+# ❗ Web app accessible [🌐HERE](https://lemon-plant-06a0c9003.5.azurestaticapps.net) ❗
 
 <img src="readme_src/example.gif" width="700px"/>
 
