@@ -1,5 +1,4 @@
 # ❗ Web app accessible [🌐HERE !](https://lemon-plant-06a0c9003.5.azurestaticapps.net) *(not permanent)* ❗
-## ⚠️ If you read this message, this means that the app is currently not working due to problems with Azure
 
 <img src="readme_src/example.gif" width="700px"/>
 
