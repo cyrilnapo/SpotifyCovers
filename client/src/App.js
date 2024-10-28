@@ -21,6 +21,8 @@ const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 console.log(CLIENT_ID);
 console.log(CLIENT_SECRET);
+console.log(process.env.REACT_APP_SPOTIFY_CLIENT_ID);
+console.log(process.env.REACT_APP_SPOTIFY_CLIENT_SECRET);
 
 // Credentials are optional
 var spotifyApi = new SpotifyWebApi({
