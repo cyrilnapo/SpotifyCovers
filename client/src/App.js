@@ -29,6 +29,10 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri: "https://lemon-plant-06a0c9003.5.azurestaticapps.net/",
 });
 
+function isMobileDevice() {
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 // Main app functions
 function App() {
   const [searchInput, setSearchInput] = useState("");
@@ -221,7 +225,11 @@ function App() {
                     <h5>{album.name}</h5>
                     <button
                       className="download-btn"
-                      onClick={() => downloadImage(album.images[0].url, album.name)}
+                      onClick={() => {
+                        if (isMobileDevice()) {
+                          window.open(album.images[0].url, '_blank'); // different download system on mobile
+                        }else{
+                          downloadImage(album.images[0].url, album.name)}}}
                     >
                       Download
                     </button>
