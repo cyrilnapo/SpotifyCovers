@@ -1,4 +1,4 @@
-# ❗ Web app accessible [🌐HERE](https://lemon-plant-06a0c9003.5.azurestaticapps.net) ❗
+# 🌐[spotifycovers.com](https://spotifycovers.com)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)   ![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
 
 <p align="center">
