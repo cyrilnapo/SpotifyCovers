@@ -11,6 +11,8 @@ import {
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import searchLogo from './resources/img/loupe.png';
+import githubLogo from './resources/img/github.png';
+
 
 var SpotifyWebApi = require("spotify-web-api-node");
 
@@ -243,8 +245,9 @@ function App() {
         }}
       >
         <p>
-          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>View on Github</a>
+          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>View on Github</a> <img src={githubLogo} style={{ width: "20px",marginBottom:"4px" }} />
         </p>
+        
       </footer>
     </div>
   );
