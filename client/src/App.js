@@ -169,7 +169,7 @@ function App() {
                 borderRadius: "0 25px 25px 0",
               }}
             >
-              <img src={searchLogo} style={{ width: "35px" }} />
+              <img src={searchLogo} style={{ width: "35px" }} alt="search" />
             </Button>
           </InputGroup>
         </div>
@@ -253,7 +253,7 @@ function App() {
         }}
       >
         <p>
-          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>View on Github</a> <img src={githubLogo} style={{ width: "20px",marginBottom:"4px" }} />
+          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>View on Github</a> <img src={githubLogo} alt="GitHub" style={{ width: "20px",marginBottom:"4px" }} />
         </p>
         
       </footer>
