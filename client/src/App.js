@@ -220,7 +220,7 @@ function App() {
                   key={i}
                   style={{ backgroundColor: "transparent", border: "none" }}
                 >
-                  <Card.Img src={album.images[0].url} />
+                  <Card.Img src={album.images[0].url} alt={album.name} />
                   <div className="card-info">
                     <h5>{album.name}</h5>
                     <button
