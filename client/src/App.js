@@ -26,7 +26,7 @@ const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 var spotifyApi = new SpotifyWebApi({
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
-  redirectUri: "https://lemon-plant-06a0c9003.5.azurestaticapps.net/",
+  redirectUri: "https://spotifycovers.com/",
 });
 
 function isMobileDevice() {
