@@ -146,3 +146,15 @@
   }
 
 }
+
+.clear-btn {
+  position: absolute;
+  right: 80px; /* Adjust to align correctly */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: gray;
+  cursor: pointer;
+  padding: 0 5px;
+  user-select: none;
+}

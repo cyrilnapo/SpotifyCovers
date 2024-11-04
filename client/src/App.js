@@ -13,7 +13,6 @@ import { useState, useEffect } from "react";
 import searchLogo from './resources/img/loupe.png';
 import githubLogo from './resources/img/github.png';
 
-
 var SpotifyWebApi = require("spotify-web-api-node");
 
 document.body.style.backgroundColor = "#191414";
@@ -138,7 +137,7 @@ function App() {
           <InputGroup
             className={`mb-3 py-0 search-input-group ${isSearchActive ? "active" : ""}`}
             size="lg"
-            style={{ transition: "width 0.3s ease-in-out", width: isSearchActive ? "60%" : "50%" }} // search bar width gest
+            style={{ transition: "width 0.3s ease-in-out", width: isSearchActive ? "60%" : "50%" }}
           >
             <FormControl
               placeholder="Research an artist"
@@ -148,14 +147,10 @@ function App() {
                 setSearchInput(event.target.value);
                 getArtistSuggestions(event.target.value);
               }}
-              onFocus={() => setIsSearchActive(true)} // set active class on click
-              onBlur={() => setIsSearchActive(false)} // remove active class when unfocus
-              onKeyPress={(event) => {
-                if (event.key === "Enter" && artistSuggestions.length > 0) {
-                  search(artistSuggestions[0].id);
-                }
-              }}
+              onFocus={() => setIsSearchActive(true)}
+              onBlur={() => setIsSearchActive(false)}
             />
+            <span className="clear-btn">&times;</span>
             <Button
               onClick={() => {
                 if (artistSuggestions.length > 0) {
@@ -174,7 +169,6 @@ function App() {
           </InputGroup>
         </div>
         <div className="d-flex justify-content-center">
-          {/* Display suggestions (max 10) */}
           {artistSuggestions.length > 0 && (
             <ListGroup
               className="suggestions-list"
@@ -184,7 +178,7 @@ function App() {
                 position: "absolute",
                 width: "58.8%",
                 top: "70%",
-                borderRadius: "25px 25px 25px 25px",
+                borderRadius: "25px",
               }}
             >
               {artistSuggestions.map((artist) => (
@@ -227,9 +221,11 @@ function App() {
                       className="download-btn"
                       onClick={() => {
                         if (isMobileDevice()) {
-                          window.open(album.images[0].url, '_blank'); // different download system on mobile
-                        }else{
-                          downloadImage(album.images[0].url, album.name)}}}
+                          window.open(album.images[0].url, '_blank');
+                        } else {
+                          downloadImage(album.images[0].url, album.name);
+                        }
+                      }}
                     >
                       Download
                     </button>
@@ -241,7 +237,6 @@ function App() {
         </Row>
       </Container>
 
-      {/* Footer */}
       <footer
         className="text-center py-3"
         style={{
@@ -249,13 +244,12 @@ function App() {
           position: "fixed",
           left: 0,
           bottom: 0,
-          width: "100%"
+          width: "100%",
         }}
       >
         <p>
-          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>View on Github</a> <img src={githubLogo} alt="GitHub" style={{ width: "20px",marginBottom:"4px" }} />
+          Open source project - <a href="https://github.com/cyrilnapo/spotifycovers" target="_blank" rel="noreferrer" style={{ color: "white", textDecoration: "underline" }}>View on Github</a> <img src={githubLogo} alt="GitHub" style={{ width: "20px", marginBottom: "4px" }} />
         </p>
-        
       </footer>
     </div>
   );
