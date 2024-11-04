@@ -129,7 +129,7 @@ function App() {
   return (
     <div className="App-container">
       <Container className="text-center py-3 title">
-        <h1>Spotify Covers</h1>
+        <a href="https://spotifycovers.com" style={{ textDecoration: "none" }} ><h1>Spotify Covers</h1></a>
       </Container>
 
       <Container className="py-5" style={{ position: "relative" }}>
