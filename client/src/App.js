@@ -9,7 +9,7 @@ import {
   Card,
   ListGroup,
 } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import searchLogo from './resources/img/loupe.png';
 import githubLogo from './resources/img/github.png';
 
@@ -40,6 +40,9 @@ function App() {
   const [artistSuggestions, setArtistSuggestions] = useState([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchExecuted, setSearchExecuted] = useState(false);
+
+  // Reference for the input field
+  const inputRef = useRef(null);
 
   useEffect(() => {
     var authParameters = {
@@ -140,9 +143,11 @@ function App() {
             style={{ transition: "width 0.3s ease-in-out", width: isSearchActive ? "60%" : "50%" }}
           >
             <FormControl
+              ref={inputRef}
               placeholder="Research an artist"
               type="input"
               style={{ borderRadius: "25px 0 0 25px" }}
+              value={searchInput}
               onChange={(event) => {
                 setSearchInput(event.target.value);
                 getArtistSuggestions(event.target.value);
@@ -150,7 +155,16 @@ function App() {
               onFocus={() => setIsSearchActive(true)}
               onBlur={() => setIsSearchActive(false)}
             />
-            <span className="clear-btn">&times;</span>
+            <span
+              className="clear-btn"
+              onClick={() => {
+                setSearchInput(""); // Reset state
+                inputRef.current.value = ""; // Clear input field
+                setArtistSuggestions([]); // Clear suggestions
+              }}
+            >
+              &times;
+            </span>
             <Button
               onClick={() => {
                 if (artistSuggestions.length > 0) {
