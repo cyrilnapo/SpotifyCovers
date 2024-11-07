@@ -155,16 +155,21 @@ function App() {
               onFocus={() => setIsSearchActive(true)}
               onBlur={() => setIsSearchActive(false)}
             />
-            <span
-              className="clear-btn"
-              onClick={() => {
-                setSearchInput(""); // Reset state
-                inputRef.current.value = ""; // Clear input field
-                setArtistSuggestions([]); // Clear suggestions
-              }}
-            >
-              &times;
-            </span>
+            {searchInput && (
+              <span
+                className="clear-btn"
+                onClick={() => {
+                  setSearchInput(""); // Reset state
+                  inputRef.current.value = ""; // Clear input field
+                  setArtistSuggestions([]); // Clear suggestions
+                  setAlbums([]); // Clear albums
+                  setSearchExecuted(false); // Reset search state
+                  inputRef.current.focus(); // Refocus search field
+                }}
+              >
+                &times;
+              </span>
+            )}
             <Button
               onClick={() => {
                 if (artistSuggestions.length > 0) {
