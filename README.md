@@ -1,5 +1,5 @@
 
-# 🌐[spotifycovers.com](https://spotifycovers.com) [![Azure hosting 🚀](https://github.com/cyrilnapo/spotifycovers/actions/workflows/azure-static-web-apps-lemon-plant-06a0c9003.yml/badge.svg)](https://github.com/cyrilnapo/spotifycovers/actions/workflows/azure-static-web-apps-lemon-plant-06a0c9003.yml)  [![Node CI 🛠️](https://github.com/cyrilnapo/spotifycovers/actions/workflows/node.js.yml/badge.svg)](https://github.com/cyrilnapo/spotifycovers/actions/workflows/node.js.yml)
+# 🌐[spotifycovers.com](https://spotifycovers.com) 
   
 <div align="center">
 
@@ -13,7 +13,7 @@
 
 
 
-## What
+## What 
 This program allows you to search an artist and download on the best quality (that spotify provides) their album covers image.
 ## Why
 Spotify doesn't allow you to just drag and drop or download their albums cover images on their platform. So instead of taking a screenshot or search on google, using this makes it easier.
@@ -36,3 +36,7 @@ npm install
 npm start
 ```
 ->localhost:3000
+
+
+# 
+[![Azure hosting 🚀](https://github.com/cyrilnapo/spotifycovers/actions/workflows/azure-static-web-apps-lemon-plant-06a0c9003.yml/badge.svg)](https://github.com/cyrilnapo/spotifycovers/actions/workflows/azure-static-web-apps-lemon-plant-06a0c9003.yml)  [![Node CI 🛠️](https://github.com/cyrilnapo/spotifycovers/actions/workflows/node.js.yml/badge.svg)](https://github.com/cyrilnapo/spotifycovers/actions/workflows/node.js.yml)
