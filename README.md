@@ -1,9 +1,17 @@
-# 🌐[spotifycovers.com](https://spotifycovers.com)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)   ![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+
+# 🌐[spotifycovers.com](https://spotifycovers.com) [![Azure hosting 🚀](https://github.com/cyrilnapo/spotifycovers/actions/workflows/azure-static-web-apps-lemon-plant-06a0c9003.yml/badge.svg)](https://github.com/cyrilnapo/spotifycovers/actions/workflows/azure-static-web-apps-lemon-plant-06a0c9003.yml)  [![Node CI 🛠️](https://github.com/cyrilnapo/spotifycovers/actions/workflows/node.js.yml/badge.svg)](https://github.com/cyrilnapo/spotifycovers/actions/workflows/node.js.yml)
+  
+<div align="center">
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)  ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)  ![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)  ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
+
+</div>
 
 <p align="center">
 <img src="readme_src/example.gif" width="700px" />
 </p>
+
+
 
 ## What
 This program allows you to search an artist and download on the best quality (that spotify provides) their album covers image.
