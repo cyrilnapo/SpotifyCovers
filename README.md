@@ -1,6 +1,6 @@
 <div align="center">
-
-  ![spotifycovers_logo_with-padding (1)](https://github.com/user-attachments/assets/f45f301d-5826-49f6-923a-893e0724cbae)
+  
+![spotifycovers_logo_shadowedPadded](https://github.com/user-attachments/assets/547faeb6-48e8-4109-a9db-4af36ad2a644)
 
 </div>
 
