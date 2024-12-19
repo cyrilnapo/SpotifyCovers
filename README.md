@@ -1,7 +1,7 @@
 <div align="center">
-  
-![image](https://github.com/user-attachments/assets/4475a8ec-db2a-4049-8236-dd58f4f32e36)
-  
+
+  ![spotifycovers_logo_with-padding (1)](https://github.com/user-attachments/assets/f45f301d-5826-49f6-923a-893e0724cbae)
+
 </div>
 
 # 🌐[spotifycovers.com](https://spotifycovers.com)  
