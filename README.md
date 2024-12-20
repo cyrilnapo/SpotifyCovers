@@ -1,6 +1,11 @@
 <div align="center">
   
-![spotifycovers_logo_shadowedPadded](https://github.com/user-attachments/assets/547faeb6-48e8-4109-a9db-4af36ad2a644)
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/cyrilnapo/spotifycovers/main/readme_src/spotifycovers_darklogo-radius_with-padding.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/cyrilnapo/spotifycovers/main/readme_src/spotifycovers_lightlogo-radius_with-padding.png">
+  <img alt="Image qui change selon le thème clair ou sombre" src="https://raw.githubusercontent.com/cyrilnapo/spotifycovers/main/readme_src/spotifycovers_darklogo-radius_with-padding.png">
+</picture>
+
 
 </div>
 
